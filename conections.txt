@@ -1,0 +1,6 @@
+//mongodb:
+mongodb+srv://pedrovaleji_db_user:vBYAtXBNPk2NW0Ns@cluster0.y2pklux.mongodb.net/?appName=Cluster0
+//Igual da error, en ese caso desconectar, volver a conectar y poner el nuevo enlace con la contraseña que tengo
+
+//Gemini
+AIzaSyC1dOstJKy8HRSDmU9332lljwFnAaFgTVs
