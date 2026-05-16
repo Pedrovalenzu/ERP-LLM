@@ -1,0 +1,15 @@
+# Entornos virtuales (Evita subir megabytes de librerías instaladas)
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Archivos de configuración con contraseñas y claves
+.env
+connections.txt
+secrets.json
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
