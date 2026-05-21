@@ -9,6 +9,7 @@ __pycache__/
 .env
 connections.txt
 secrets.json
+.env
 
 # Archivos temporales del sistema operativo
 .DS_Store

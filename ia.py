@@ -2,11 +2,13 @@ from pymongo import MongoClient
 
 from google import genai
 from google.genai import types
+from flask import Flask, render_template, request
 
-ca = certifi.where()
+app = Flask(__name__)
+
 
 #Para conectar la bd
-client = MongoClient("mongodb+srv://pedrovaleji_db_user:vBYAtXBNPk2NW0Ns@cluster0.y2pklux.mongodb.net/?appName=Cluster0",tlsCAFile=ca)
+client = MongoClient("mongodb+srv://pedrovaleji_db_user:vBYAtXBNPk2NW0Ns@cluster0.y2pklux.mongodb.net/?appName=Cluster0")
 
 db = client["ERP-LLM"]
 
@@ -101,7 +103,7 @@ config = types.GenerateContentConfig(
     tools=[tools]
 )
 
-textoUsuario = input("Que desea hacer en el almacén?: ")
+textoUsuario = request.form['consulta']
 contents = [
     types.Content(
         role="user", parts=[types.Part(text=textoUsuario)] #Si el texto se parece gemini va a ejecutar la funcion de crear. Si no va a responder como el modelo normal
