@@ -1,50 +1,52 @@
-# Conversational Warehouse Management ERP (LLM Function Calling)
+# ERP Conversacional para Gestión de Almacén (LLM Function Calling)
 
-An experimental conversational Enterprise Resource Planning (ERP) prototype designed for automated warehouse inventory control and stock tracking using Natural Language Interfaces (NLI) and Large Language Model (LLM) Function Calling[cite: 2].
+Prototipo experimental de un sistema de Planificación de Recursos Empresariales (ERP) enfocado en el control de existencias e inventario mediante interfaces de lenguaje natural (NLI) y llamadas a funciones (*Function Calling*) con Modelos de Lenguaje (LLM).
 
-Developed for the **Enterprise Information Systems (Sistemas de Información Empresarial)** course at the **University of Málaga (UMA)**[cite: 2].
-
----
-
-## 📌 Overview
-
-Traditional ERP interfaces require administrative personnel to manually fill out forms, scan barcodes, and query databases through rigid user interfaces[cite: 2]. This project explores the feasibility, performance, and reliability of replacing standard UI workflows with a **purely conversational interface driven by LLM tool usage**[cite: 2].
-
-The system translates natural language queries into executable backend functions (CRUD operations) to manage stock entries (purchases), exits (sales/waste), and real-time inventory queries[cite: 2].
+Desarrollado para la asignatura **Sistemas de Información Empresarial (SIE)** en la **Universidad de Málaga (UMA)**.
 
 ---
 
-## 🚀 Key Features
+## Descripción del Proyecto
 
-* **Conversational Inventory Management:** Natural language handling of stock additions, removals, and balance consultations[cite: 2].
-* **Function Calling / Tool Integration:** Dynamic mapping of user requests to backend Python database functions and parameter extraction[cite: 2].
-* **Real-time Data Visualization:** Automatic generation of dashboard analytics and inventory graphs derived from conversation states[cite: 2].
-* **Multi-Model Support:** Architecture tested against both cloud-based APIs and locally hosted open-weights models[cite: 2].
+Las interfaces tradicionales de ERP exigen que el personal administrativo rellene formularios rígidos, busque códigos manualmente o gestione tablas extensas en hojas de cálculo. Este proyecto evalúa la viabilidad técnica, el rendimiento y la fiabilidad de sustituir los formularios convencionales por un **flujo conversacional automatizado mediante el uso de herramientas e IA generativa**.
+
+El sistema interpreta las peticiones en lenguaje natural del usuario y ejecuta dinámicamente funciones del *backend* (operaciones CRUD) para gestionar entradas (compras), salidas (ventas/desechos) y consultas de stock en tiempo real.
 
 ---
 
-## 🧪 Model Comparison & Evaluation
+## Características Principales
 
-As part of the research, we benchmarked multiple LLMs acting as the orchestration agent[cite: 2]:
+* **Control de Inventario Conversacional:** Gestión de altas, bajas y consultas de existencias mediante órdenes en lenguaje natural.
+* **Llamada a Funciones (*Function Calling*):** Mapeo dinámico de intenciones a funciones Python que modifican o consultan la base de datos de forma directa.
+* **Visualización de Datos en Tiempo Real:** Generación automática de gráficas para el seguimiento visual del estado del inventario.
+* **Evaluación Multimodelo:** Comparación empírica entre modelos en la nube y modelos de pesos abiertos ejecutados en local.
 
-| Model | Deployment | Strengths | Limitations Observed |
+---
+
+## Comparativa y Evaluación de Modelos
+
+Se implementó y analizó el comportamiento de distintos LLMs como orquestadores del sistema:
+
+| Modelo | Entorno | Puntos Fuertes | Limitaciones Detectadas |
 | :--- | :--- | :--- | :--- |
-| **Google Gemini** | Cloud API | High function-calling reliability, fast response times, consistent JSON structure generation[cite: 2]. | Occasional case-sensitivity issues on database entity lookup[cite: 2]. |
-| **LLaMA 3.1** | Local Execution | Privacy-preserving, local data sovereignty. | High inference latency, difficulties adhering to function schemas without strict prompt constraints[cite: 2]. |
+| **Google Gemini** | API Cloud | Alta precisión en *function calling*, tiempos de respuesta reducidos y consistencia en estructuras JSON. | Problemas puntuales al discriminar mayúsculas/minúsculas en elementos existentes de la base de datos. |
+| **LLaMA 3.1** | Ejecución Local | Privacidad y soberanía de los datos al no depender de servicios externos. | Mayor latencia de inferencia y dificultad para seleccionar el nombre exacto de las funciones sin un *prompt* muy estricto. |
 
-### Identified Challenges & Trade-offs
-1. **Tool Ambiguity:** Smaller or local models frequently struggled to match exact function declarations unless constrained with strict system prompts[cite: 2].
-2. **Entity Recognition & Normalization:** Inherent difficulty across models in normalizing user-supplied parameters (e.g., casing inconsistencies when matching existing stock items)[cite: 2].
-3. **Data Integrity vs. Usability:** While conversational ERP reduces training overhead, delegating transactional database mutations entirely to LLM interpretation introduces critical risk of state inconsistencies compared to deterministic UI forms[cite: 2].
+### Conclusiones y Retos Técnicos
+1. **Ambigüedad en Herramientas:** Modelos locales pequeños tienden a cometer fallos en la selección de herramientas a menos que se limite estrictamente el espacio de decisión mediante ingeniería de prompts.
+2. **Normalización de Entidades:** Dificultad generalizada para emparejar registros en bases de datos cuando el usuario varía entre mayúsculas y minúsculas.
+3. **Integridad vs. Usabilidad:** Aunque la interfaz conversacional reduce la curva de aprendizaje, delegar mutaciones transaccionales críticas a la interpretación probabilística de un LLM conlleva riesgos de inconsistencia frente a validaciones tradicionales de formularios.
+
+---
+
+## Tecnologías Utilizadas
+
+* **Lenguaje:** Python
+* **Modelos e Integraciones:** Google Gemini API (Cloud), Meta LLaMA 3.1 (Local)
+* **Arquitectura de Herramientas:** Gemini Function Calling con esquemas JSON
+* **Lógica y Persistencia:** Funciones CRUD personalizadas y gestión de estados de stock
+* **Visualización:** Librerías de generación de gráficas en Python
 
 ---
 
-## 🛠️ Tech Stack
-
-* **Language:** Python
-* **LLMs & APIs:** Google Gemini API (Cloud)[cite: 2], Meta LLaMA 3.1 (Local)[cite: 2]
-* **Tool Calling Framework:** Official Gemini Function Calling / JSON schema definitions[cite: 2]
-* **Database & Logic:** Custom backend CRUD functions & stock state management[cite: 2]
-* **Visualization:** Python data plotting libraries[cite: 2]
-
----
+*Departamento de Lenguajes y Ciencias de la Computación (LCC), Universidad de Málaga (UMA)*
